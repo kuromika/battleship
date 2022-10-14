@@ -1,0 +1,26 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "battleship game",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mika-alpha/battleship.git"
+  },
+  "author": "mika-alpha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mika-alpha/battleship/issues"
+  },
+  "homepage": "https://github.com/mika-alpha/battleship#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
