@@ -1,15 +1,22 @@
 
-const Ship = (length) => {
+class Ship{
 
-    let hits = 0; 
+    #hits;
 
-    const hit = () => {
-        hits += 1;
+    #length;
+
+    construnctor(length) {
+        this.#length = length;
     }
 
-    const isSunk = () => (length === hits);
+    hit(){
+        this.#hits += 1;
+    }
 
-    return {isSunk, hit}
+    isSunk() {
+        return this.#length === this.#hits;
+    } 
+
 }
 
 export default Ship;
