@@ -27,14 +27,14 @@ describe('Gameboard tests', () => {
     })
 
     test("Attack is registered correctly and ship is hit", () => {
-        testBoard.placeShip(6, 6, 3, horizontal);
-        testBoard.receiveAttack(6, 6);
-        expect(testBoard.getValueAt(6, 6)).toBe(2);
+        testBoard.placeShip(6, 6, 3, 'horizontal');
+        expect(testBoard.receiveAttack(6, 6)).toBe(true);
+        expect(testBoard.getValueAt(6, 6)).toBe(7);
     })
 
     test('Attack is registred correctly but hits nothing', () => {
-        testBoard.receiveAttack(3, 3);
-        expect(testBoard.getValueAt(3, 3)).toBe(7);
+        expect(testBoard.receiveAttack(3, 3)).toBe(false);
+        expect(testBoard.getValueAt(3, 3)).toBe(6);
     })
 
 })

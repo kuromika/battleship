@@ -18,7 +18,7 @@ class Gameboard {
         for (let i = 0; i < 10; i += 1){
             this.#matrix.push([]);
             for (let j = 0; j < 10; j += 1){
-                this.#matrix[i].push(6);
+                this.#matrix[i].push(5);
             }
         }
     }
@@ -33,7 +33,7 @@ class Gameboard {
     #isValidHorizontal(x, y, length) {
         if (y + length < 10) {
             for (let i = y; i < y + length; i += 1){
-                if (this.#matrix[x][i] !== 6) {
+                if (this.#matrix[x][i] !== 5) {
                     return false;
                 }
             }
@@ -56,7 +56,7 @@ class Gameboard {
     #isValidVertical(x, y, length) {
         if (x + length < 10) {
             for (let i = x; i < x + length; i += 1){
-                if (this.#matrix[i][y] !== 6) {
+                if (this.#matrix[i][y] !== 5) {
                     return false;
                 }
             }
@@ -76,10 +76,24 @@ class Gameboard {
         return false;   
     }
 
+    receiveAttack(x, y) {
+        if (this.#matrix[x][y] < 5) {
+            this.#ships[this.#matrix[x][y]].hit();
+            this.#matrix[x][y] = 7;
+            return true;
+        }
 
+        if (this.#matrix[x][y] === 5) {
+            this.#matrix[x][y] = 6;
+        }
+
+        return false;
+    }
 
     getValueAt(x, y) {
         return this.#matrix[x][y];
     }
 }
+
+
 export default Gameboard;
