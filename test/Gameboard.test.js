@@ -9,38 +9,21 @@ describe('Gameboard tests', () => {
     })
 
     test("Ship is placed horizontally in expected coordinates", () => {
-        testBoard.placeShip(0, 0, 5, 'horizontal');
-        let flag = true;
-        for (let i = 0; i < 5; i += 1){
-            if (testBoard.getValueAt(0, i) !== 0) {
-                flag = false;
-                break;
-            }
-        }
-        expect(flag).toBe(true);
+        expect(testBoard.placeShip(0, 0, 5, 'horizontal')).toBe(true);
+    
     })
 
     test("Ship is placed vertically in expected coordinates", () => {
-        testBoard.placeShip(0, 1, 3, 'vertical');
-        let flag = true;
-        for (let i = 0; i < 3; i++){
-            if (testBoard.getValueAt(i,1) !== 0) {
-                flag = false;
-                break;
-            }
-        }
-        expect(flag).toBe(true);
+        expect(testBoard.placeShip(0, 1, 3, 'vertical')).toBe(true);
     })
 
     test("Ship can't be placed out of bounds", () => {
-        testBoard.placeShip(7, 7, 5, 'horizontal');
-        expect(testBoard.getValueAt(7, 7)).toBe(6);
+        expect(testBoard.placeShip(7, 7, 5, 'horizontal')).toBe(false);
     })
 
-    test.only("Ship can't be placed on top of other", () => {
+    test("Ship can't be placed on top of other", () => {
         testBoard.placeShip(0, 0, 5, 'horizontal');
-        testBoard.placeShip(1, 0, 5, 'vertical');
-        expect(testBoard.getValueAt(1, 1)).toBe(6);
+        expect(testBoard.placeShip(0, 1, 5, 'vertical')).toBe(false);
     })
 
     test("Attack is registered correctly and ship is hit", () => {

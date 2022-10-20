@@ -31,7 +31,7 @@ class Gameboard {
     }
 
     #isValidHorizontal(x, y, length) {
-        if (x + length < 10) {
+        if (y + length < 10) {
             for (let i = y; i < y + length; i += 1){
                 if (this.#matrix[x][i] !== 6) {
                     return false;
@@ -54,9 +54,9 @@ class Gameboard {
     }
 
     #isValidVertical(x, y, length) {
-        if (y + length < 10) {
-            for (let i = y; i < y + length; i += 1){
-                if (this.#matrix[x][i] !== 6){
+        if (x + length < 10) {
+            for (let i = x; i < x + length; i += 1){
+                if (this.#matrix[i][y] !== 6) {
                     return false;
                 }
             }
@@ -66,7 +66,7 @@ class Gameboard {
     }
 
     #placeVertical(x, y, length) {
-        if (this.#isValidVertical) {
+        if (this.#isValidVertical(x,y,length)) {
             for (let i = x; i < x + length; i += 1){
                 this.#matrix[i][y] = this.#ships.length;
             }
