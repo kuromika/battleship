@@ -39,6 +39,10 @@ function updateBoards() {
     updateMatrix(playerMatrix, getPlayer().board);
 }
 
+function attackPlayer() {
+    const [x, y] = getComputer().getNextMove();
+    getPlayer().board.receiveAttack(x,y)
+}
 
 function addListeners() {
     const cells = computerMatrix.childNodes;
@@ -48,13 +52,13 @@ function addListeners() {
             const y = e.target.getAttribute('y');
             const hitValue = getComputer().board.receiveAttack(x, y);
             if (hitValue) {
+                attackPlayer();
                 updateBoards();
             }
 
         })
     })
 }
-
 
 
 function initialize() {

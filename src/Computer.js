@@ -15,8 +15,9 @@ class Computer extends Player {
 
     getNextMove(){
         const moveIndex = Math.floor(Math.random() * this.#possibleAttacks.length);
+        const move = this.#possibleAttacks[moveIndex];
         this.#possibleAttacks.splice(moveIndex, 1);
-        return this.#possibleAttacks[moveIndex];
+        return move;
     }
 }
     
