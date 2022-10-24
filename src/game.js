@@ -19,4 +19,7 @@ function populateBoards() {
 
 populateBoards();
 
-export {player, computer}
+const getPlayer = () => player;
+const getComputer= () => computer;
+
+export { getComputer, getPlayer }
