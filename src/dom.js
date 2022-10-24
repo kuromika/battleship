@@ -12,6 +12,7 @@ function populateMatrixes() {
             div.setAttribute('y', j);
             div.className = 'empty';
             playerMatrix.append(div.cloneNode(true));
+            div.className = 'hidden';
             computerMatrix.append(div);
         }
     }
@@ -28,7 +29,7 @@ function updateMatrix(matrix, board) {
         for (let j = 0; j < 10; j += 1){
             if (board.matrix[i][j] !== 5) {
                 const cell = matrix.querySelector(`[x="${i}"][y="${j}"]`);
-                cell.className = values[board.matrix[i][j]];
+                cell.classList.add(values[board.matrix[i][j]]);
             }
         }
     }
@@ -64,7 +65,9 @@ function gameLoop(x, y) {
         attackPlayer();
         updateBoards();
         gameOver(isOver());
+        return true;
     }
+    return false;
 }
 
 function addListeners() {
@@ -73,7 +76,9 @@ function addListeners() {
         cell.addEventListener('click', (e) => {
             const x = e.target.getAttribute('x');
             const y = e.target.getAttribute('y');
-            gameLoop(x, y);
+            if (gameLoop(x, y)) {
+                e.target.classList.remove('hidden');
+            }
         })
     })
 }
