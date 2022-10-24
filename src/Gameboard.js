@@ -80,14 +80,15 @@ class Gameboard {
         if (this.#matrix[x][y] < 5) {
             this.#ships[this.#matrix[x][y]].hit();
             this.#matrix[x][y] = 7;
-            return true;
+            return 1;
         }
 
         if (this.#matrix[x][y] === 5) {
             this.#matrix[x][y] = 6;
+            return -1;
         }
 
-        return false;
+        return 0;
     }
 
     hasLost() {
