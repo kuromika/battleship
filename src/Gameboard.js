@@ -90,6 +90,19 @@ class Gameboard {
         return false;
     }
 
+    hasLost() {
+        for (let i = 0; i < this.#ships.length; i += 1){
+            if (!this.#ships[i].isSunk()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    get matrix() {
+        return this.#matrix;
+    }
+
     getValueAt(x, y) {
         return this.#matrix[x][y];
     }
