@@ -3,6 +3,7 @@ import './style.css';
 
 const playerMatrix = document.querySelector('#player');
 const computerMatrix = document.querySelector('#computer');
+const values = { 6: 'explored', 7: 'hit' }
 
 function populateMatrixes() {
     for (let i = 0; i < 10; i += 1){
@@ -12,7 +13,6 @@ function populateMatrixes() {
             div.setAttribute('y', j);
             div.className = 'empty';
             playerMatrix.append(div.cloneNode(true));
-            div.className = 'hidden';
             computerMatrix.append(div);
         }
     }
@@ -20,10 +20,6 @@ function populateMatrixes() {
 
 
 function updateMatrix(matrix, board) {
-    const values = { 6: 'explored', 7: 'hit' }
-    for (let i = 0; i < 5; i += 1){
-        values[i] = 'occupied';
-    }
 
     for (let i = 0; i < 10; i += 1){
         for (let j = 0; j < 10; j += 1){
@@ -86,6 +82,9 @@ function addListeners() {
 
 
 function initialize() {
+    for (let i = 0; i < 5; i += 1){
+        values[i] = 'occupied';
+    }
     populateMatrixes();
     addListeners();
     updateBoards();
