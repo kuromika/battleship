@@ -1,4 +1,4 @@
-import { getComputer, getPlayer} from './game';
+import { getComputer, getPlayer, isOver} from './game';
 import './style.css';
 
 const playerMatrix = document.querySelector('#player');
@@ -34,6 +34,7 @@ function updateMatrix(matrix, board) {
     }
 }
 
+
 function updateBoards() {
     updateMatrix(computerMatrix, getComputer().board);
     updateMatrix(playerMatrix, getPlayer().board);
@@ -44,21 +45,39 @@ function attackPlayer() {
     getPlayer().board.receiveAttack(x,y)
 }
 
+function gameOver(status) {
+    if (status) {
+        const body = document.querySelector('body');
+        const winnerText = document.createElement('p');
+        const text = `The ${status === 1 ? 'computer' : 'player'} has won the game.`
+        winnerText.textContent = text;
+        body.append(winnerText);
+        const cover = document.createElement('div');
+        cover.classList.add('cover');
+        computerMatrix.append(cover);
+    }
+}
+
+function gameLoop(x, y) {
+    const hitValue = getComputer().board.receiveAttack(x, y);
+    if (hitValue) {
+        attackPlayer();
+        updateBoards();
+        gameOver(isOver());
+    }
+}
+
 function addListeners() {
     const cells = computerMatrix.childNodes;
     cells.forEach(cell => {
         cell.addEventListener('click', (e) => {
             const x = e.target.getAttribute('x');
             const y = e.target.getAttribute('y');
-            const hitValue = getComputer().board.receiveAttack(x, y);
-            if (hitValue) {
-                attackPlayer();
-                updateBoards();
-            }
-
+            gameLoop(x, y);
         })
     })
 }
+
 
 
 function initialize() {

@@ -19,7 +19,19 @@ function populateBoards() {
 
 populateBoards();
 
+function isOver() {
+    if (player.board.hasLost()) {
+        return 1;
+    }
+
+    if (computer.board.hasLost()) {
+        return -1;
+    }
+
+    return 0;
+}
+
 const getPlayer = () => player;
 const getComputer= () => computer;
 
-export { getComputer, getPlayer }
+export { getComputer, getPlayer,isOver }
