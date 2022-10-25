@@ -33,7 +33,7 @@ describe('Gameboard tests', () => {
     })
 
     test('Attack is registred correctly but hits nothing', () => {
-        expect(testBoard.receiveAttack(3, 3)).toBe(0);
+        expect(testBoard.receiveAttack(3, 3)).toBe(-1);
         expect(testBoard.getValueAt(3, 3)).toBe(6);
     })
 

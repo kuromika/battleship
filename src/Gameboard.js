@@ -31,7 +31,7 @@ class Gameboard {
     }
 
     #isValidHorizontal(x, y, length) {
-        if (y + length < 10) {
+        if (y + length < 11) {
             for (let i = y; i < y + length; i += 1){
                 if (this.#matrix[x][i] !== 5) {
                     return false;
@@ -54,7 +54,7 @@ class Gameboard {
     }
 
     #isValidVertical(x, y, length) {
-        if (x + length < 10) {
+        if (x + length < 11) {
             for (let i = x; i < x + length; i += 1){
                 if (this.#matrix[i][y] !== 5) {
                     return false;
