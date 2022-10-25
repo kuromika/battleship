@@ -5,11 +5,28 @@
 }
 
 body{
+    background-image: url(../img/thomas-vimare-IZ01rjX0XQA-unsplash.jpg);
+    background-position: 0%;
+    flex-direction: column;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+footer{
+    color: white;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+footer a,
+footer a:visited{
+    color: wheat;
+}
+
+
 
 body p{
     margin-top: 30px;
@@ -18,6 +35,7 @@ body p{
 }
 
 main{
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
