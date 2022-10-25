@@ -6,12 +6,6 @@ const player = new Player();
 const computer = new Computer();
 
 
-function populateBoards() {
-    player.board.placeShip(0, 0, 3, 'horizontal');
-    player.board.placeShip(7, 7, 5, 'horizontal');
-    player.board.placeShip(1, 2, 3, 'vertical');
-    player.board.placeShip(5, 5, 2, 'vertical');
-}
 
 function placeComputerShips() {
     const tempComputer = new Computer();
@@ -27,7 +21,6 @@ function placeComputerShips() {
 }
 
 placeComputerShips();
-populateBoards();
 
 function isOver() {
     if (player.board.hasLost()) {
