@@ -8,6 +8,33 @@
     <title>Battleship</title>
 </head>
 <body>
+    <header>
+
+        <div class="coordinates">
+            <div class="coord">
+                <span>x:</span>
+                <input type="number" name="x" id="x" class="coord-field" max="9" min="0">
+            </div>
+            <div class="coord">
+                <span>y:</span>
+                <input type="number" name="y" id="y" class="coord-field" max="9" min="0">
+            </div>
+        </div>
+
+        <div class="select-ship">
+            <label for="ships">Ship: </label>
+            <select name="ships" id="ships">
+                <option value="0">Carrier</option>
+                <option value="1">Battleship</option>
+                <option value="2">Destroyer</option>
+                <option value="3">Submarine</option>
+                <option value="4">Patrol Boat</option>
+            </select>
+        </div>
+        
+        <button type="button" class="place">Place ship</button>
+    </header>
+
 
     <main>
         <div class="boards">
