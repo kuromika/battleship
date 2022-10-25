@@ -53,11 +53,11 @@ function addCover() {
 
 function gameOver(status) {
     if (status) {
-        const main = document.querySelector('main');
+        const header = document.querySelector('header');
         const winnerText = document.createElement('p');
         const text = `The ${status === 1 ? 'computer' : 'player'} has won the game.`
         winnerText.textContent = text;
-        main.append(winnerText);
+        header.after(winnerText);
         addCover();
       
     }
