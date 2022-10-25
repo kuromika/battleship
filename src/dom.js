@@ -44,11 +44,11 @@ function attackPlayer() {
 
 function gameOver(status) {
     if (status) {
-        const body = document.querySelector('body');
+        const main = document.querySelector('main');
         const winnerText = document.createElement('p');
         const text = `The ${status === 1 ? 'computer' : 'player'} has won the game.`
         winnerText.textContent = text;
-        body.append(winnerText);
+        main.append(winnerText);
         const cover = document.createElement('div');
         cover.classList.add('cover');
         computerMatrix.append(cover);
