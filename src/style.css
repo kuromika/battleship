@@ -26,6 +26,39 @@ footer a:visited{
     color: wheat;
 }
 
+header{
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    gap: 30px;
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+header input[type="number"]{
+    width: 40px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.coordinates{
+    font-size: 25px;
+}
+
+#ships{
+    font-size: 15px;
+}
+
+.place{
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 900;
+}
 
 
 body p{
@@ -43,6 +76,11 @@ main{
     gap: 50px;
 }
 
+.coordinates{
+    display: flex;
+    gap: 10px;
+}
+
 .boards{
     display: flex;
     gap: 50px
@@ -57,16 +95,22 @@ main{
     gap: 1px;
 }
 
+.matrix div{
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .empty{
     background-color: white;
 }
 
 .occupied{
-    background-color: green;
+    background-color: lime;
 }
 
 .explored{
-    background-color: blue;
+    background-color: aqua;
 }
 
 .hit{

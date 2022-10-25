@@ -11,8 +11,10 @@ function populateMatrixes() {
             const div = document.createElement('div');
             div.setAttribute('x', i);
             div.setAttribute('y', j);
+            div.textContent = `${i}, ${j}`
             div.className = 'empty';
             playerMatrix.append(div.cloneNode(true));
+            div.classList.add('hidden');
             computerMatrix.append(div);
         }
     }
